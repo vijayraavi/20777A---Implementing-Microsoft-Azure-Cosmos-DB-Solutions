@@ -2,14 +2,14 @@
 
 ## What are we doing?
 
-- To support course 20776 Performing Big Data Engineering on Microsoft Cloud Services, we will need to make frequent updates to the course content to keep it current with the Azure services used in the course. We are publishing the lab instructions and lab files on GitHub to allow for open contributions between the course authors and MCTs to keep the content current with changes in the Azure platform.
+- To support course 20777 Implementing Microsoft Azure Cosmos DB Solutions, we will need to make frequent updates to the course content to keep it current with the Azure services used in the course. We are publishing the lab instructions and lab files on GitHub to allow for open contributions between the course authors and MCTs to keep the content current with changes in the Azure platform.
 - We hope that this brings a sense of collaboration to the labs like we've never had before - when Azure changes and you find it first during a live delivery, go ahead and make an enhancement right in the lab source. Help your fellow MCTs.
 
 ## How should I use these files relative to the released MOC files?
 
 - The instructor handbook and PowerPoints are still going to be your primary source for teaching the course content.
 - These files on GitHub are designed to be used in conjunction with the student handbook, but are in GitHub as a central repository so MCTs and course authors can have a shared source for the latest lab files.
-- It is recommended that for every delivery of 20776, trainers check GitHub for any changes that may have been made to support the latest Azure services, and get the latest files for their delivery.
+- It is recommended that for every delivery of 20777, trainers check GitHub for any changes that may have been made to support the latest Azure services, and get the latest files for their delivery.
 
 ## What about changes to the student handbook?
 
@@ -29,9 +29,7 @@ It is strongly recommended that MCTs and Partners access these materials and in 
 
 GitHub should not be used to discuss technical content in the course, or how to prep. It is specifically to address changes in the labs.
 
-- To address general comments about the course & demos or how to prepare for 20776, please use the MCT forums at https://borntolearn.mslearn.net/mct/general/f/225. This is the MCT Readiness forum for discussions, news, etc. to help you prepare to teach courses and let you collaborate with other instructors.
-
-> **MCTs:** Refer to the '20776AGitHubUserGuideforMCTs.pdf' file on the Download Center for detailed instructions for using GitHub. This document is also available on the GitHub repo as [20776A GitHub UserGuide for MCTs](20776AGitHubUserGuideforMCTs.md).  
+- To address general comments about the course & demos or how to prepare for 20777, please use the MCT forums at https://borntolearn.mslearn.net/mct/general/f/225. This is the MCT Readiness forum for discussions, news, etc. to help you prepare to teach courses and let you collaborate with other instructors.
 
 ### Powershell
 
