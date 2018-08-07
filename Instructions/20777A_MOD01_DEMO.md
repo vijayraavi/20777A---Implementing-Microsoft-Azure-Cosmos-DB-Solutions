@@ -323,7 +323,7 @@ Before starting this demo:
 > devices and store this information as a set of documents in a local
 > MongoDB.
 
-1.  On the Start menu, click **Visual Studio 17**.
+1.  On the Start menu, click **Visual Studio 2017**.
 2.  In Visual Studio 2017, on the **File** menu, point to **Open**, then
     click **Project/Solution**.
 3.  In the **Open Project** dialog box, go to
@@ -422,7 +422,7 @@ Before starting this demo:
     **Azure Cosmos DB**, and note the previously created databases.
 2.  Click the **20777a-sql-\<your name\>-\<the day\>** database that was
     created in the previous demo.
-3.  In the **SQL API** pane, click **Data Explorer**, and then click
+3.  On the **20777a-sql-\<your name\>-\<the day\>** blade, click **Data Explorer**, and then click
     **New Database**.
 4.  On the **New Database** blade, in the **Database id** box, type
     **DeviceData**, and then click **OK**.
@@ -534,12 +534,12 @@ Before starting this demo:
 7.  On the **Storage accounts** blade, click **Refresh**, and then click
     the **20777a** storage account.
 8.  On the **20777a** blade, on the **Overview** page, under
-    **Services**, click **Tables**, and then click **+ Table**.
+    **Table Service**, click **Tables**, and then click **+ Table**.
 9.  In the **Add table** dialog box, in the **Table name** box, type
     **CriminalRecords**, and then click **OK**.
 10. In the left pane, under **SETTINGS**, click **Access keys**.
 11. Make a note of the **key1** **Connection string**.
-12. On the Start menu, click **Visual Studio 17**.
+12. On the Start menu, click **Visual Studio 2017**.
 13. In Visual Studio 2017, on the **File** menu, point to **Open**, and
     then click **Project/Solution**.
 14. In the **Open Project** dialog box, go to
@@ -678,7 +678,7 @@ Before starting this demo:
 
 #### Task 1: Show the Sample Application Connecting to MongoDB
 
-1.  On the Start menu, click **Visual Studio 17**.
+1.  On the Start menu, click **Visual Studio 2017**.
 2.  In Visual Studio 2017, on the **File** menu, point to **Open**, and
     then click **Project/Solution**.
 3.  In the **Open Project** dialog box, go to
@@ -743,7 +743,7 @@ Before starting this demo:
     {
        EnabledSslProtocols = SslProtocols.Tls12
     },
-    Credential = new MongoCredential("SCRAM-SHA-1", new MongoInternalIdentity(database, username), new PasswordEvidence(password))
+    Credential = new MongoCredential("SCRAM-SHA-1", new MongoInternalIdentity(database, azureLogin.UserName), new PasswordEvidence(azureLogin.SecurePassword))
     ```
 13. Press F5 to build and run the application.
 14. In the **MongoDeviceDataCapture.exe** window, let the code run for a
@@ -776,7 +776,7 @@ API database.
 
 #### Task 1: Show the sample application connecting to Azure Table storage
 
-1.  On the Start menu, click **Visual Studio 17**.
+1.  On the Start menu, click **Visual Studio 2017**.
 2.  In Visual Studio 2017, on the **File** menu, point to **Open**, and
     then click **Project/Solution**.
 3.  In the **Open Project** dialog box, go to
@@ -845,7 +845,7 @@ demonstration.
 **Scenario: Examine a .NET application to connect and read data from a
 SQL API database.**
 
-1.  On the Start menu, click **Visual Studio 17**.
+1.  On the Start menu, click **Visual Studio 2017**.
 2.  In Visual Studio 2017, on the **File** menu, point to **Open**, and
     then click **Project/Solution**.
 3.  In the **Open Project** dialog box, go to
@@ -984,7 +984,7 @@ SQL API database.**
     press Enter.
 11. Note that all the document details for the pasted **devideID** have
     been returned.
-12. Press Enter to quit.
+12. Press Enter, and then press any key to quit.
 13. Close all open windows, but keep the Azure portal open for the next
     demo.
 
@@ -1009,7 +1009,7 @@ SQL API Cosmos DB database.
 
 #### Task 1: Update the App.config file
 
-1.  On the Start menu, click **Visual Studio 17**.
+1.  On the Start menu, click **Visual Studio 2017**.
 2.  In Visual Studio 2017, on the **File** menu, point to **Open**, and
     then click **Project/Solution**.
 3.  In the **Open Project** dialog box, go to

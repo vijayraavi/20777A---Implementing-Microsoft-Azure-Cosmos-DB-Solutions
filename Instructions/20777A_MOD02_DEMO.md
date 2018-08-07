@@ -82,9 +82,9 @@ Before starting this demo:
 
 15. In the **Partition key** box, type **/deviceID**.
 
-16. In the **Throughput (1,000 - 100,000 RU/s)** box, type **15000**, and then click **OK**.
-
 **Note**: Cosmos DB is case sensitive; the case of the partitioning key must match the case of the property in your documents.
+
+16. In the **Throughput (1,000 - 100,000 RU/s)** box, type **15000**, and then click **OK**.
 
 17. On the **20777a-sql-\<your name\>-\<the day\>** blade, click **New Collection**.
 
@@ -126,7 +126,7 @@ Before starting this demo:
 
 2.  In the **How do you want to open this file?** dialog box, double-click **Visual Studio 2017**.
 
-3.  Explain that this application simulates many concurrent users performing queries against temperature data, and calculates the query throughput in Resource Units per second (RU/s).
+3.  Explain that this application simulates many concurrent users performing queries against temperature data, and calculates the query cost in Resource Units per second (RU/s).
 
 4.  In Solution Explorer, double-click **ClientReader.cs**.
 
@@ -186,7 +186,9 @@ Before starting this demo:
 
 12.   In ClientReader.cs, in the **RunQueriesAsync** method, confirm that the **EnableCrossPartitionQuery** and **MaxDegreeOfParallelism** options are not commented out, and the **PartitionKey** option is commented out (as in the code shown in step 5 above).
 
-13.   Press F5 to run the application. The application will take a couple of minutes to run; it simulates 100 concurrent users, each performing 10 iterations of the workload specified in the **ClientReader** class. When it completes, make a note of the **Processing Throughput (in RU/s)** and **Elapsed Time** returned by the application.
+13.   Press F5 to run the application. The application will take a couple of minutes to run; it simulates 100 concurrent users, each performing 10 iterations of the workload specified in the **ClientReader** class. When it completes, make a note of the **Processing Throughput (in RU/s)** (query cost) and **Elapsed Time** returned by the application.
+
+**Note**: The **Processing Throughput (in RU/s)** figure shows the throughput consumed by the query in RU/s. The higher the **Processing Throughput (in RU/s)** value, the greater the cost of the query.
 
 14.   When the application is complete, press any key to close the window.
 
@@ -201,23 +203,21 @@ Before starting this demo:
     ```CSharp 
     // TODO: Only select the PartitionKey property for appropriately partitioned collections
     options.PartitionKey = new PartitionKey(deviceKey);
-    
+
     // TODO: Enable cross-partition queries if the partition key does not match the predicate
     //options.EnableCrossPartitionQuery = true;
-    
+
     // TODO: MaxDegreeOfParallelism is only useful for cross-partition queries
     //options.MaxDegreeOfParallelism = this.maxDegreesOfParallelism;
     ```
-
-
 
 17. Press F5 to run the application; it will take a couple of minutes to run.
 
 18. When it completes, make a note of the **Processing Throughput (in RU/s)** and **Elapsed Time** returned by the application, and compare them to results of the first run.
 
-> The elapsed time is likely to be longer for the second run. In the first run, that data is partitioned by the date field and the queries can take advantage of parallelism to fetch the data for a device using concurrent threads (as indicated by the **MaxDegreeOfParallelism** option). In the second run, the data for each query comes from a single partition and cannot be parallelized.
-> 
-> However, the throughput figure for the second run should be 3 or 4 times that of the first run (for example, the first run expends 3 or 4 times more effort than the first). Both runs perform the same work, but partitioning the data by deviceID is much more cost-effective for queries that retrieve data by deviceID.
+> The throughput figure for the first run should be 3 or 4 times more than that of the second run. indicating that the first run had a higher RU/s cost. Both runs aggregate the same results, but partitioning the data by deviceID is much more cost-effective for queries that retrieve data by deviceID.
+>
+> The elapsed time is likely to be longer for the first run. In the first run, that data is partitioned by the date field and the queries can take advantage of parallelism to fetch the data for a device using concurrent threads (as indicated by the **MaxDegreeOfParallelism** option). In the second run, the data for each query comes from a single partition and cannot be parallelized; however, the first run must do so much more work to aggregrate the results that the second run is faster.
 
 19. In the application window, press any key to close the window.
 
@@ -433,7 +433,7 @@ You need to have completed the previous demonstration before following these ste
 
 2.  On the **20777a-sql-\<your name\>-\<the day\>** blade, click **Data Explorer**, and then click **New Database**.
 
-3.  On the **Add database** blade, in the **Database id** box, type **DeviceData**, and then click **OK**.
+3.  On the **New Database** blade, in the **Database id** box, type **DeviceData**, and then click **OK**.
 
 4.  On the **20777a-sql-\<your name\>-\<the day\>** blade, click **New Collection**.
 
@@ -700,29 +700,30 @@ You need to have completed the previous demonstration before following these ste
     
     Explain that this method uses the same mechanism as the previous one to fetch the data, but makes no assumptions about the structure of that data. Instead, the data is deserialized as a dictionary of property/value pairs.
 
-11. In Internet Explorer, in the **SQL API** pane, expand **Temperatures**, and then click **Documents**.
+11. In Internet Explorer, on the **20777a-sql-\<your name\>-\<the day\>** blade, click **Data Explorer**.
+12. In the **SQL API** pane, expand **Temperatures**, and then click **Documents**.
 
-12. On the **Documents** tab, click the first document in the document list.
+13. On the **Documents** tab, click the first document in the document list.
 
-13. In the **id** property, select the value, and then press Ctrl+C to copy the value.
+14. In the **id** property, select the value, and then press Ctrl+C to copy the value.
 
-14. In Visual Studio, press F5 to run the application.
+15. In Visual Studio, press F5 to run the application.
 
-15. At the prompt, type **A**.
+16. At the prompt, type **A**.
 
-16. Right-click anywhere inside the application window to paste the document id, and then press Enter.
+17. Right-click anywhere inside the application window to paste the document id, and then press Enter.
 
-17. Examine the values returned by the application.
+18. Examine the values returned by the application.
 
-18. In Internet Explorer, verify that the values correspond to the document open in Data Explorer.
+19. In Internet Explorer, verify that the values correspond to the document open in Data Explorer.
 
-19. In the running application, at the command prompt, type **B**.
+20. In the running application, at the command prompt, type **B**.
 
-20. Right-click anywhere inside the application window to paste the document id, and then press Enter.
+21. Right-click anywhere inside the application window to paste the document id, and then press Enter.
 
-21. The data for the document will appear as a list of name/value pairs, including the system properties of the document, such as **ttl**, **\_rid**, and so on.
+22. The data for the document will appear as a list of name/value pairs, including the system properties of the document, such as **time**, **\_rid**, and so on.
 
-22. At the prompt, type **X** to close the application.
+23. At the prompt, type **X** to close the application.
 
 #### Task 2: Create, Delete, and Modify Documents
 

@@ -209,7 +209,7 @@ This demonstration assumes that you have completed the previous demonstrations i
 
 5.  In the **Partition key** box, type **/deviceID**.
 
-6.  In the **Throughput (1,000 - 100,000 RU/s)** box, type **10000**, and then click **OK**.
+6.  In the **Throughput (1,000 - 50,000 RU/s)** box, type **10000**, and then click **OK**.
 
 > **Note**: Cosmos DB is case sensitive; the case of the partitioning key must match the case of the property in your documents.
 > 
@@ -235,7 +235,7 @@ This demonstration assumes that you have completed the previous demonstrations i
 
 15. In the **SQL API** pane, expand **Temperatures**, and then click **Scale & Settings**.
 
-16. In the **Scale & Settings** pane, in the **Throughput (1,000 - 100,000 RU/s)** box, type **1500**, and then click **Save**.
+16. In the **Scale & Settings** pane, in the **Throughput (1,000 - 50,000 RU/s)** box, type **1500**, and then click **Save**.
 
 #### Task 1: Create a Stored Procedure
 
@@ -734,7 +734,7 @@ This block of code obtains the current time and adjusts it to match a .NET Frame
 
       When you have finished, the document should look like this (but with a different `id` value):
       
-      ``JSON
+      ```JSON
       {
       "id": "7f2890fe-9027-42f3-90d4-2deb6be47ee4",
       "temperature" :  999,
@@ -772,7 +772,7 @@ This block of code obtains the current time and adjusts it to match a .NET Frame
 
 19. Only one document is returned; the document with the **ticks** value in the future was not added.
 
-20. In the **Test Trigger** application, to test past date detection, change the value of the **ticks** property to **100** (this puts the date into the distant past). When you have finished, the document should look like this (but with a different **id** value):
+20. In the **Test Triggers** application, to test past date detection, change the value of the **ticks** property to **100** (this puts the date into the distant past). When you have finished, the document should look like this (but with a different **id** value):
       ```JSON
       {
       "id": "ff2890fe-9027-42f3-90d4-2deb6be47ee4",
@@ -786,7 +786,7 @@ This block of code obtains the current time and adjusts it to match a .NET Frame
       Error: Time is too old
       ```
 
-22. Close the Test Trigger application.
+22. Close the Test Triggers application.
 
 23. In Visual Studio, in Solution Explorer, expand **MainWindow.xaml**, and then double-click **MainWindow.xaml.cs**.
 
